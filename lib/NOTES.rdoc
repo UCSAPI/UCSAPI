@@ -1,0 +1,80 @@
+@ucs = UCS.new(@options)
+@ucs.login
+
+puts "\nTEST: GET ALL FABRICS - @ucs.fabric"
+puts @ucs.fabrics.to_s
+
+puts "\nTEST: GET FABRIC A BY ID - @ucs.fabric(:id = 'A')"
+puts @ucs.fabric(:id => 'A').to_s
+
+puts "\nTEST: GET FABRIC B BY DN - @ucs.fabric(:dn => 'sys/switch-B')"
+puts @ucs.fabric(:dn => 'sys/switch-B').to_s
+
+
+puts "\nTEST: GET ALL FABRICS TOTAL MEMORY - @ucs.fabric.totalMemory"
+puts @ucs.fabric.totalMemory
+
+puts "\nTEST: NON-EXISTENT METHOD VIA FABRIC ARRAY PROXY - @ucs.fabric.noSuchMethod"
+puts @ucs.fabric.noSuchMethod
+
+puts "\nTEST: GET ALL FABRIC ATTRIBUTES - @ucs.fabric.attributes"
+puts @ucs.fabric.attributes
+
+puts "\nTEST: GET ALL FABRIC INSPECT - @ucs.fabric.each { |fabric| puts fabric.inspect }"
+@ucs.fabric.each { |fabric| puts fabric.inspect }
+
+puts "\nTEST: USE FABRICS PROXY METHOD - @ucs.fabrics(:id => 'A')"
+puts @ucs.fabrics(:id => 'A')
+
+puts "\nTEST: GET FABRIC A BOOTFLASH - @ucs.fabric(:id=>'A').bootflash"
+puts @ucs.fabric(:id=>'A').bootflash
+
+puts "\nTEST: GET ALL FABRICS BOOTFLASH - @ucs.fabric.bootflash"
+puts @ucs.fabric.bootflash
+
+puts "\nTEST: GET FABRIC A WORKSPACE - @ucs.fabric(:id=>'A').workspace"
+puts @ucs.fabric(:id=>'A').workspace
+
+puts "\nTEST: GET FABRIC A WORKSPACE SIZE - @ucs.fabric(:id=>'A').workspace.size"
+puts @ucs.fabric(:id=>'A').workspace.size
+
+puts "\nTEST: GET ALL FABRICS WORKSPACE - @ucs.fabric.workspace"
+puts @ucs.fabric.workspace    
+
+puts "\nTEST: GET FABRIC A OPT - @ucs.fabric(:id=>'A').opt"
+puts @ucs.fabric(:id=>'A').opt
+
+puts "\nTEST: GET FABRIC A OPT SIZE - @ucs.fabric(:id=>'A').opt.size"
+puts @ucs.fabric(:id=>'A').opt.size
+
+puts "\nTEST: GET ALL FABRICS OPT - @ucs.fabric.opt"
+puts @ucs.fabric.opt
+
+puts "\nTEST: GET FABRIC A STATS - @ucs.fabric(:id=>'A').stats"
+puts @ucs.fabric(:id=>'A').stats
+
+puts "\nTEST: GET FABRIC A LOAD - @ucs.fabric(:id=>'A').stats.load"
+puts @ucs.fabric(:id=>'A').stats.load
+
+puts "\nTEST: GET ALL FABRICS STATS - @ucs.fabric.stats"
+puts @ucs.fabric.stats
+  
+puts "\nTEST: GET FABRIC A SLOTS - @ucs.fabric(:id=>'A').slots"
+puts @ucs.fabric(:id=>'A').slots
+  
+puts "\nTEST: GET FABRIC A SLOT 1 - @ucs.fabric(:id=>'A').slot(:id=>1)"
+puts @ucs.fabric(:id=>'A').slot(:id=>1).to_s
+
+puts "\nTEST: GET ALL FABRICS ALL SLOTS - @ucs.fabric.slots"
+puts @ucs.fabrics.slots    
+
+puts "\nTEST: GET ALL SLOTS ALL ATTRIBUTES - @ucs.fabric.slots.attributes"
+puts @ucs.fabrics.slots.attributes
+
+puts "\nTEST: GET THE SERIAL NUMBER OF ALL SLOTS - @ucs.fabric.slots.serial"
+puts @ucs.fabrics.slots.serial 
+
+puts "\nTEST: GET THE NUM PORTS OF FABRIC A SLOT 1 - @ucs.fabric( :id => 'A').slot( :id => 1 ).numPorts"
+puts @ucs.fabric( :id => 'B').slot( :id => 1 ).numPorts
+
+@ucs.logout
